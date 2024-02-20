@@ -1,0 +1,219 @@
+*,/*todos los elementos*/
+*::before, /*para asegurar que los elementos generados por CSS de forma dinámica también sigan estas reglas*/
+*::after {
+  box-sizing: border-box; /* sin esta regla, el ancho y alto de un elemento se calcula sin tener en cuenta el relleno y el borde*/
+  margin: 0;  /* para garantizar que no haya márgenes o rellenos no deseados aplicados de forma predeterminada por el navegador*/
+  padding: 0;
+}
+
+body, 
+input, 
+select, 
+textarea {
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+}
+
+body{
+    color: map-get($colores, white-color);
+}
+
+/*HEADER*/
+a {
+    text-decoration: none;
+    color: map-get($colores, white-color);
+}
+
+header, 
+.main__first__section{
+    background-color: map-get($colores, light-gray);
+}
+
+header{
+    @include flexbox(row, space-between);
+    min-height: 5em;
+    padding: 2em;
+
+    span{
+        font-weight: bolder;
+    }
+}
+
+.header__nav a{
+    margin-right: 2em;
+    font-weight: bold;
+}
+
+.header__nav a:hover, 
+hr{
+    color: map-get($colores, lightgray-color);
+}
+
+/*FIRST-POST*/
+.hr__horizontal{
+    min-width: 100%;
+}
+
+.main__first__section{
+    padding: 2em;
+    @include flexbox(column);
+
+    h1{
+        margin-top: 3em;
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+}
+
+.main__first__section__articles{
+    @include flexbox();
+    text-align: center;
+
+    article{
+        margin-left: 2em;
+        margin-right: 2em;
+
+        i{
+            color: map-get($colores, green-color);
+        }
+
+        p {
+            color: map-get($colores, lightgray-color);
+        }
+    }
+}
+
+
+.main__first__section__articles article i, 
+.main__first__section__articles article h3, 
+.main__first__section__articles article p{
+    margin-bottom: 0.5em;
+}
+
+.hr__vertical{
+    min-height: 7em;
+    min-width: 0;
+}
+
+.button__green{
+    background-color: transparent;
+    border: 3px solid map-get($colores, green-color);
+    border-radius: 40px;
+    color: map-get($colores, green-color);
+    padding: 1em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    font-size: 1em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    &:hover{
+        background-color: map-get($colores, dark-gray);
+    }
+}
+
+/*POSTS*/
+.main__posts{
+    @include flexbox();
+    padding: 5em;
+
+    article{
+        @include flexbox(column);
+        text-align: center;
+        padding-right: 10em;
+        padding-left: 10em;
+    }
+
+    h2{
+        color: map-get($colores, black-color);
+        min-width: 10em;
+        margin-bottom: 1.5em;
+    }
+
+    p{
+        color: map-get($colores, grey-color); 
+        font-size: large;
+    }
+}
+
+.main__posts h2, 
+.main__posts p{
+    line-height: 1.5em;
+}
+
+img{
+    border-radius: 50%;
+    margin-bottom: 1em;
+}
+
+/*FORMULARIO*/
+.main__formulario{
+    width: 100%;
+    background-color: map-get($colores, green-color);
+    @include flexbox(column, flex-start, stretch);
+    padding: 3em;
+    color: map-get($colores, white-color);
+
+    h2{
+        margin-left: 50%;
+        margin-bottom: 2em;
+    }
+
+    li{
+        list-style: none;
+    }
+}
+
+input, 
+textarea{
+    border: 3px solid map-get($colores, light-green);
+    border-radius: 10px;
+    background-color: transparent;
+    width: 100%;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.main__formulario__data{
+    @include flexbox();
+
+    input{
+        min-width: 46.5em;
+        margin-right: 1em;
+    }
+}
+
+.button__white{
+    background-color: transparent;
+    border: 3px solid map-get($colores, white-color);
+    border-radius: 40px;
+    color: map-get($colores, green-color);
+    padding: 1em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    font-size: 1em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+::placeholder{
+    color: map-get($colores, light-green);
+    font-weight: bolder;
+    font-size: large;
+}
+
+/*FOOTER*/
+footer{
+    background-color: map-get($colores, green-color);
+    @include flexbox();
+    text-align: center;
+    min-height: 5em;
+
+    span {
+        font-weight: bolder;
+    }
+}
